@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ballTrigger : MonoBehaviour {
+public class ballTrigger : MonoBehaviour { //allows ball object to interact with placed box colliders that trigger camera position change
     SpriteRenderer ballRenderer;
     public int currentTrigger;
 
     void Start() {
-        currentTrigger = 0;
+        currentTrigger = -1;
     }
 
-    void FixedUpdate(){}
-
-    void OnTriggerEnter2D(Collider2D other) { //checking collision with cam triggers
-        if (other.gameObject.name == "triggerPos1") {
+    void OnTriggerEnter2D(Collider2D other) { //checking collision with cam trigger box colliders
+        if (other.gameObject.name == "triggerPos0") {
+            currentTrigger = 0;
+        } else if (other.gameObject.name == "triggerPos1") {
             currentTrigger = 1;
         } else if (other.gameObject.name == "triggerPos2") {
             currentTrigger = 2;
